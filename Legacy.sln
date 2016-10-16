@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Legacy", "Legacy\Legacy.csproj", "{76A94A62-261B-4768-95D3-A74C90B13348}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProviderProcessor", "ProviderProcessor\ProviderProcessor.csproj", "{76A94A62-261B-4768-95D3-A74C90B13348}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.csproj", "{ACCEE871-5333-4D10-BC9E-13E34027E577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emails", "Emails\Emails.csproj", "{629E3835-2E78-4047-A791-7E10FDAA6498}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{76A94A62-261B-4768-95D3-A74C90B13348}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76A94A62-261B-4768-95D3-A74C90B13348}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76A94A62-261B-4768-95D3-A74C90B13348}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACCEE871-5333-4D10-BC9E-13E34027E577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCEE871-5333-4D10-BC9E-13E34027E577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCEE871-5333-4D10-BC9E-13E34027E577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCEE871-5333-4D10-BC9E-13E34027E577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{629E3835-2E78-4047-A791-7E10FDAA6498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629E3835-2E78-4047-A791-7E10FDAA6498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629E3835-2E78-4047-A791-7E10FDAA6498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629E3835-2E78-4047-A791-7E10FDAA6498}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
