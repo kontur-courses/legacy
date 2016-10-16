@@ -7,42 +7,49 @@ namespace Emails.Solved
     [TestFixture]
     public class NewRateEmailMessager_Should
     {
-        private NewRateEmailMessager messager;
+        public delegate EmailMessage CreateMessage(string customerName, AccountType accountType, decimal rate);
 
-        [SetUp]
-        public void SetUp()
+        private CreateMessage GetCreateMessage(bool useRefactored)
         {
-            messager = new NewRateEmailMessager();
+            CreateMessage legacyCreateMessage = new NewRateEmailMessager().CreateMessage;
+            CreateMessage refactoredCreateMessage = new NewRateEmailMessager_Refactored().CreateMessage;
+            return useRefactored ? legacyCreateMessage : refactoredCreateMessage;
         }
 
-        [Test]
+        [Test, TestCase(false), TestCase(true)]
         [UseReporter(typeof(DiffReporter))]
-        public void CreateMessage()
+        public void CreateAllMessages(bool useRefactored)
         {
+            var createMessage = GetCreateMessage(useRefactored);
+
             CombinationApprovals.VerifyAllCombinations(
                 (customerName, accountType, rate) =>
-                        messager.CreateMessage(customerName, accountType, rate),
+                        createMessage(customerName, accountType, rate),
                 ApprovalTestsExtensions.Print,
                 new[] {"Jack", "Lily"},
                 new[] {AccountType.Cheque, AccountType.Credit, AccountType.Savings},
                 new[] {0.05m, 0.1m});
         }
 
-        [Test]
+        [Test, TestCase(false), TestCase(true)]
         [UseReporter(typeof(DiffReporter))]
-        public void NotIncreaseRate_WhenItIsOffInConfig()
+        public void NotIncreaseRate_WhenItIsOffInConfig(bool useRefactored)
         {
+            var createMessage = GetCreateMessage(useRefactored);
+
             new Config {IncreaseRate = false}
-                .ApplyTo(() => messager.CreateMessage("Jack", AccountType.Savings, 0.099m))
+                .ApplyTo(() => createMessage("Jack", AccountType.Savings, 0.099m))
                 .Print().Verify();
         }
 
-        [Test]
+        [Test, TestCase(false), TestCase(true)]
         [UseReporter(typeof(DiffReporter))]
-        public void UseRateFromConfig()
+        public void UseRateFromConfig(bool useRefactored)
         {
+            var createMessage = GetCreateMessage(useRefactored);
+
             new Config {IncreaseRate = true, IncreaseRateFactor = 2.0m}
-                .ApplyTo(() => messager.CreateMessage("Jack", AccountType.Savings, 1.0m))
+                .ApplyTo(() => createMessage("Jack", AccountType.Savings, 1.0m))
                 .Print().Verify();
         }
     }
