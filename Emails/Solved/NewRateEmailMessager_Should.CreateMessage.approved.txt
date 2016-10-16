@@ -1,0 +1,168 @@
+﻿[Jack,Cheque,0.05] => new EmailMessage()
+{
+    Important = False
+    Subject = "New rate!"
+    Body = Dear Jack
+
+We are sending you this message with respect to your chequing account
+
+The interest rate at which you earn interest has changed to 0,0505%.
+
+
+Kind regards - your bank.
+
+}
+[Jack,Cheque,0.1] => new EmailMessage()
+{
+    Important = True
+    Subject = "New rate!"
+    Body = Dear Jack
+
+We are sending you this message with respect to your chequing account
+
+The interest rate at which you earn interest has changed to 0,101%.
+
+
+Kind regards - your bank.
+
+}
+[Jack,Credit,0.05] => new EmailMessage()
+{
+    Important = False
+    Subject = "New rate!"
+    Body = Dear Jack
+
+We are sending you this message with respect to your credit card
+
+The interest rate for which you will be charged for new purchases is now 0,0505%
+
+
+Kind regards - your bank.
+
+}
+[Jack,Credit,0.1] => new EmailMessage()
+{
+    Important = True
+    Subject = "New rate!"
+    Body = Dear Jack
+
+We are sending you this message with respect to your credit card
+
+The interest rate for which you will be charged for new purchases is now 0,101%
+
+
+Kind regards - your bank.
+
+}
+[Jack,Savings,0.05] => new EmailMessage()
+{
+    Important = False
+    Subject = "New rate!"
+    Body = Dear Jack
+
+We are sending you this message with respect to your on line savings account
+
+Your savings interest rate has changed to 0,0505%
+
+
+Kind regards - your bank.
+
+}
+[Jack,Savings,0.1] => new EmailMessage()
+{
+    Important = True
+    Subject = "New rate!"
+    Body = Dear Jack
+
+We are sending you this message with respect to your on line savings account
+
+Your savings interest rate has changed to 0,101%
+
+
+Kind regards - your bank.
+
+}
+[Lily,Cheque,0.05] => new EmailMessage()
+{
+    Important = False
+    Subject = "New rate!"
+    Body = Dear Lily
+
+We are sending you this message with respect to your chequing account
+
+The interest rate at which you earn interest has changed to 0,0505%.
+
+
+Kind regards - your bank.
+
+}
+[Lily,Cheque,0.1] => new EmailMessage()
+{
+    Important = True
+    Subject = "New rate!"
+    Body = Dear Lily
+
+We are sending you this message with respect to your chequing account
+
+The interest rate at which you earn interest has changed to 0,101%.
+
+
+Kind regards - your bank.
+
+}
+[Lily,Credit,0.05] => new EmailMessage()
+{
+    Important = False
+    Subject = "New rate!"
+    Body = Dear Lily
+
+We are sending you this message with respect to your credit card
+
+The interest rate for which you will be charged for new purchases is now 0,0505%
+
+
+Kind regards - your bank.
+
+}
+[Lily,Credit,0.1] => new EmailMessage()
+{
+    Important = True
+    Subject = "New rate!"
+    Body = Dear Lily
+
+We are sending you this message with respect to your credit card
+
+The interest rate for which you will be charged for new purchases is now 0,101%
+
+
+Kind regards - your bank.
+
+}
+[Lily,Savings,0.05] => new EmailMessage()
+{
+    Important = False
+    Subject = "New rate!"
+    Body = Dear Lily
+
+We are sending you this message with respect to your on line savings account
+
+Your savings interest rate has changed to 0,0505%
+
+
+Kind regards - your bank.
+
+}
+[Lily,Savings,0.1] => new EmailMessage()
+{
+    Important = True
+    Subject = "New rate!"
+    Body = Dear Lily
+
+We are sending you this message with respect to your on line savings account
+
+Your savings interest rate has changed to 0,101%
+
+
+Kind regards - your bank.
+
+}

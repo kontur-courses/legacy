@@ -1,0 +1,14 @@
+﻿new EmailMessage()
+{
+    Important = True
+    Subject = "New rate!"
+    Body = Dear Jack
+
+We are sending you this message with respect to your on line savings account
+
+Your savings interest rate has changed to 2,00%
+
+
+Kind regards - your bank.
+
+}
