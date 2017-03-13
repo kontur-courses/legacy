@@ -76,6 +76,7 @@
     <Compile Include="ApprovalsDemo.cs" />
     <Compile Include="PairwiseDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeamCityVerboseReporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

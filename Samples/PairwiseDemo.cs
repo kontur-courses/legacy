@@ -34,19 +34,19 @@ namespace Samples
 			[Values("+", "-")] string b,
 			[Values("x", "y")] string c)
 		{
-			NamerFactory.AdditionalInformation = a + b + c;
 			var v = $"{a} {b} {c}";
 			Approvals.Verify(v);
+			//TODO: ApprovalResults.ForScenario
 		}
 
-        [Test]
-        [UseReporter(typeof(DiffReporter))]
-        public void CombinatorialApprovals()
-        {
-            CombinationApprovals.VerifyAllCombinations(
-                (a, b) => a + b,
-                new[] { 1, 2, 3 },
-                new[] { 0, -1, -5 });
-        }
-    }
+		[Test]
+		[UseReporter(typeof(DiffReporter))]
+		public void CombinatorialApprovals()
+		{
+			CombinationApprovals.VerifyAllCombinations(
+				(a, b) => a + b,
+				new[] { 1, 2, 3 },
+				new[] { 0, -1, -5 });
+		}
+	}
 }
