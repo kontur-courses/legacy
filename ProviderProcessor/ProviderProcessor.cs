@@ -17,11 +17,6 @@ namespace ProviderProcessing
 		public ProcessReport ProcessProviderData(string message)
 		{
 			var data = JsonConvert.DeserializeObject<ProviderData>(message);
-			return ProcessProviderData(data);
-		}
-
-		public ProcessReport ProcessProviderData(ProviderData data)
-		{
 			var existingData = repo.FindByProviderId(data.ProviderId);
 			if (existingData != null && data.Timestamp < existingData.Timestamp)
 			{
@@ -30,14 +25,14 @@ namespace ProviderProcessing
 				return new ProcessReport(false, "Outdated data");
 			}
 			var errors = ValidateNames(data.Products)
-                .Concat(ValidatePricesAndUnitsCodes(data.Products))
-                .ToList();
+				.Concat(ValidatePricesAndUnitsCodes(data.Products))
+				.ToList();
 			if (errors.Any())
 			{
-			    return new ProcessReport(false, "Product validation errors",
-                    errors.ToArray());
+				return new ProcessReport(false, "Product validation errors",
+					errors.ToArray());
 			}
-			
+
 			if (existingData == null)
 			{
 				repo.Save(data);
@@ -68,30 +63,30 @@ namespace ProviderProcessing
 			return data.Id + " for " + data.ProviderId + " products count " + data.Products.Length;
 		}
 
-	    private IEnumerable<ProductValidationResult> ValidateNames(ProductData[] data)
-	    {
-            var reference = ProductsReference.GetInstance();
-            foreach (var product in data)
-            {
-                if (!reference.FindCodeByName(product.Name).HasValue)
-                    yield return new ProductValidationResult(product,
-                        "Unknown product name", ProductValidationSeverity.Error);
-            }
-        }
+		private IEnumerable<ProductValidationResult> ValidateNames(ProductData[] data)
+		{
+			var reference = ProductsReference.GetInstance();
+			foreach (var product in data)
+			{
+				if (!reference.FindCodeByName(product.Name).HasValue)
+					yield return new ProductValidationResult(product,
+						"Unknown product name", ProductValidationSeverity.Error);
+			}
+		}
 
-	    private IEnumerable<ProductValidationResult> ValidatePricesAndUnitsCodes(ProductData[] data)
-	    {
-	        foreach (var product in data)
-	        {
-	            if (product.Price <= 0 || product.Price > Settings.Global.MaxPossiblePrice)
-	                yield return new ProductValidationResult(product, "Bad price", ProductValidationSeverity.Warning);
-                if (!IsValidUnitsCode(product.UnitsCode))
-                    yield return new ProductValidationResult(product,
-                        "Bad units of measurements", ProductValidationSeverity.Warning);
-            }
-        }
+		private IEnumerable<ProductValidationResult> ValidatePricesAndUnitsCodes(ProductData[] data)
+		{
+			foreach (var product in data)
+			{
+				if (product.Price <= 0 || product.Price > Settings.Global.MaxPossiblePrice)
+					yield return new ProductValidationResult(product, "Bad price", ProductValidationSeverity.Warning);
+				if (!IsValidUnitsCode(product.UnitsCode))
+					yield return new ProductValidationResult(product,
+						"Bad units of measurements", ProductValidationSeverity.Warning);
+			}
+		}
 
-	    private bool IsValidUnitsCode(string unitsCode)
+		private bool IsValidUnitsCode(string unitsCode)
 		{
 			var reference = UnitsReference.GetInstance();
 			return reference.FindByCode(unitsCode) != null;
