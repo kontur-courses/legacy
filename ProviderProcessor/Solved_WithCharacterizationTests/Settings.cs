@@ -1,4 +1,4 @@
-namespace ProviderProcessing.Solved2
+namespace ProviderProcessing.Solved_WithCharacterizationTests
 {
 	public class Settings
 	{

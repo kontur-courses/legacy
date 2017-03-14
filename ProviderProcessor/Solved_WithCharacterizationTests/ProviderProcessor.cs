@@ -3,7 +3,7 @@ using System.Linq;
 using log4net;
 using Newtonsoft.Json;
 
-namespace ProviderProcessing.Solved2
+namespace ProviderProcessing.Solved_WithCharacterizationTests
 {
 	public class ProviderProcessor
 	{

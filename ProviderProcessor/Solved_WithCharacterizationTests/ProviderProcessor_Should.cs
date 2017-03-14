@@ -10,7 +10,7 @@ using log4net.Appender;
 using log4net.Config;
 using NUnit.Framework;
 
-namespace ProviderProcessing.Solved2
+namespace ProviderProcessing.Solved_WithCharacterizationTests
 {
 	[TestFixture]
 	[UseReporter(typeof(DiffReporter), typeof(ClipboardReporter))]

@@ -111,12 +111,50 @@
     <Compile Include="ProviderData.cs" />
     <Compile Include="ProviderRepository.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProcessReport.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProductData.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProductsReference.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProductValidationResult.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProductValidationSeverity.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProductValidator.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProviderData.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProviderProcessor.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\ProviderRepository.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\Settings.cs" />
+    <Compile Include="Solved_WithCharacterizationTests\UnitsReference.cs" />
+    <Compile Include="Solved\MeasureUnit.cs" />
+    <Compile Include="Solved\ProcessReport.cs" />
+    <Compile Include="Solved\ProductData.cs" />
+    <Compile Include="Solved\ProductsReference.cs" />
+    <Compile Include="Solved\ProductValidationResult.cs" />
+    <Compile Include="Solved\ProductValidationSeverity.cs" />
+    <Compile Include="Solved\ProductValidator.cs" />
+    <Compile Include="Solved\ProviderData.cs" />
+    <Compile Include="Solved\ProviderProcessor.cs" />
+    <Compile Include="Solved\ProviderProcessor_Should.cs" />
+    <Compile Include="Solved\ProviderRepository.cs" />
+    <Compile Include="Solved\Settings.cs" />
+    <Compile Include="Solved\UnitsReference.cs" />
     <Compile Include="UnitsReference.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.New data.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Old.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Old2.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Old2.received.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Product with bad price.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Product with bad unit.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Product with bad units.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Same empty data with replace.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Same empty data.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Two errors.approved.txt" />
+    <Content Include="Solved_WithCharacterizationTests\ProviderProcessor_Should.CharacterizationTest.ForScenario.Unknown product name.approved.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
