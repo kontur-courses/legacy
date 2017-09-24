@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using FakeItEasy;
 using FluentAssertions;
 using NUnit.Framework;
+using ProviderProcessing.MeasureUnits;
 
 namespace ProviderProcessing.Solved_WithCharacterizationTests
 {

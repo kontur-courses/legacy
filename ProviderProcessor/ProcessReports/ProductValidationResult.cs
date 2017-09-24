@@ -1,4 +1,6 @@
-namespace ProviderProcessing
+using ProviderProcessing.ProviderDatas;
+
+namespace ProviderProcessing.ProcessReports
 {
 	public class ProductValidationResult
 	{

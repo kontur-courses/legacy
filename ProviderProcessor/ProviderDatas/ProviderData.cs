@@ -1,6 +1,6 @@
 using System;
 
-namespace ProviderProcessing
+namespace ProviderProcessing.ProviderDatas
 {
 	public class ProviderData
 	{

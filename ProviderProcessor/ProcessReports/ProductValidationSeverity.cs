@@ -1,4 +1,4 @@
-namespace ProviderProcessing
+namespace ProviderProcessing.ProcessReports
 {
 	public enum ProductValidationSeverity
 	{

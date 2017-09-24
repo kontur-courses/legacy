@@ -1,4 +1,5 @@
 using System;
+using ProviderProcessing.MeasureUnits;
 
 namespace ProviderProcessing.Solved_WithCharacterizationTests
 {

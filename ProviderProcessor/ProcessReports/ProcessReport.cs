@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace ProviderProcessing
+namespace ProviderProcessing.ProcessReports
 {
 	public class ProcessReport
 	{

@@ -1,6 +1,6 @@
 using System;
 
-namespace ProviderProcessing
+namespace ProviderProcessing.References
 {
 	public class ProductsReference
 	{

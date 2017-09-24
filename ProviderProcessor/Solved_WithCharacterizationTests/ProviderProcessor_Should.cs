@@ -9,6 +9,7 @@ using FakeItEasy;
 using log4net.Appender;
 using log4net.Config;
 using NUnit.Framework;
+using ProviderProcessing.MeasureUnits;
 
 namespace ProviderProcessing.Solved_WithCharacterizationTests
 {

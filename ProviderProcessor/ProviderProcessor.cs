@@ -2,6 +2,9 @@
 using System.Linq;
 using log4net;
 using Newtonsoft.Json;
+using ProviderProcessing.ProcessReports;
+using ProviderProcessing.ProviderDatas;
+using ProviderProcessing.References;
 
 namespace ProviderProcessing
 {
@@ -25,7 +28,7 @@ namespace ProviderProcessing
 				return new ProcessReport(false, "Outdated data");
 			}
 			var errors = ValidateNames(data.Products)
-				.Concat(ValidatePricesAndUnitsCodes(data.Products))
+				.Concat(ValidatePricesAndMeasureUnitCodes(data.Products))
 				.ToList();
 			if (errors.Any())
 			{
@@ -74,22 +77,22 @@ namespace ProviderProcessing
 			}
 		}
 
-		private IEnumerable<ProductValidationResult> ValidatePricesAndUnitsCodes(ProductData[] data)
+		private IEnumerable<ProductValidationResult> ValidatePricesAndMeasureUnitCodes(ProductData[] data)
 		{
 			foreach (var product in data)
 			{
 				if (product.Price <= 0 || product.Price > Settings.Global.MaxPossiblePrice)
 					yield return new ProductValidationResult(product, "Bad price", ProductValidationSeverity.Warning);
-				if (!IsValidUnitsCode(product.UnitsCode))
+				if (!IsValidMeasureUnitCode(product.MeasureUnitCode))
 					yield return new ProductValidationResult(product,
-						"Bad units of measurements", ProductValidationSeverity.Warning);
+						"Bad units of measure", ProductValidationSeverity.Warning);
 			}
 		}
 
-		private bool IsValidUnitsCode(string unitsCode)
+		private bool IsValidMeasureUnitCode(string measureUnitCode)
 		{
-			var reference = UnitsReference.GetInstance();
-			return reference.FindByCode(unitsCode) != null;
+			var reference = MeasureUnitsReference.GetInstance();
+			return reference.FindByCode(measureUnitCode) != null;
 		}
 
 		private static readonly ILog log = LogManager.GetLogger(typeof(ProviderProcessor));
