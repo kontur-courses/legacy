@@ -34,9 +34,10 @@ namespace Samples
 			[Values("+", "-")] string b,
 			[Values("x", "y")] string c)
 		{
-			var v = $"{a} {b} {c}";
-			Approvals.Verify(v);
-			//TODO: ApprovalResults.ForScenario
+			using (ApprovalResults.ForScenario(a, b, c))
+			{
+				Approvals.Verify($"{a} {b} {c}");
+			}
 		}
 
 		[Test]

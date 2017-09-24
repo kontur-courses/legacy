@@ -11,26 +11,33 @@ using StatePrinting;
 namespace Samples
 {
 	[TestFixture]
-	//NOTE: TortoiseMerge без Ribbon работает быстрее!
 	public class ApprovalsDemo
 	{
 		[Test]
 		public void Puzzle15_InitialState()
 		{
 			var puzzle15 = new Puzzle15();
-			// TODO assert
+			// TODO: assert
+			// HINT: Approvals.Verify
 		}
+
+		#region Как это работает
+
+		// DiffReporter - выбирает наилучший имеющийся в наличии способ сравнения
+		// Approvals.Verify создает файл *.received.txt с текущим значением и сравнивает его с файлом *.approved.txt 
+
+		#endregion
 
 		[Test]
 		public void Puzzle15_MoveRight()
 		{
 			var puzzle15 = new Puzzle15();
 			puzzle15.MoveRight();
-			// TODO assert
+			// TODO: assert
 		}
 
 		[Test]
-		public void ApproveProductDataWithStateprinter()
+		public void ApproveProductData()
 		{
 			var product = new Product
 			{
@@ -39,8 +46,9 @@ namespace Samples
 				Price = 3.14m,
 				UnitsCode = "112"
 			};
-			//TODO Verify product
-			//TODO Exclude TemporaryData
+			//TODO: Verify product
+			//TODO: Exclude TemporaryData
+			//HINT: stateprinter.Configuration.Project.Exclude
 		}
 
 		[Test]
@@ -56,7 +64,8 @@ namespace Samples
 			};
 			string serialized = JsonConvert.SerializeObject(original);
 			Product deserialized = JsonConvert.DeserializeObject<Product>(serialized);
-			//TODO проверить, что сериализуется корректно!
+			//TODO: Проверить, что сериализуется корректно!
+			//HINT: ShouldBeEquivaletTo с опциями в FluentAssertions
 		}
 	}
 
