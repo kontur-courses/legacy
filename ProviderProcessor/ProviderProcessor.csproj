@@ -110,7 +110,6 @@
     <Compile Include="ProviderProcessor.cs" />
     <Compile Include="ProviderDatas\ProviderData.cs" />
     <Compile Include="ProviderDatas\ProviderRepository.cs" />
-    <Compile Include="Settings.cs" />
     <Compile Include="References\MeasureUnitsReference.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

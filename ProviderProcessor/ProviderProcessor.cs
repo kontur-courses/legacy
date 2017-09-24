@@ -63,7 +63,9 @@ namespace ProviderProcessing
 
 		private string FormatData(ProviderData data)
 		{
-			return data.Id + " for " + data.ProviderId + " products count " + data.Products.Length;
+			return data != null
+				? data.Id + " for " + data.ProviderId + " products count " + data.Products.Length
+				: "null";
 		}
 
 		private IEnumerable<ProductValidationResult> ValidateNames(ProductData[] data)
@@ -81,7 +83,7 @@ namespace ProviderProcessing
 		{
 			foreach (var product in data)
 			{
-				if (product.Price <= 0 || product.Price > Settings.Global.MaxPossiblePrice)
+				if (product.Price <= 0)
 					yield return new ProductValidationResult(product, "Bad price", ProductValidationSeverity.Warning);
 				if (!IsValidMeasureUnitCode(product.MeasureUnitCode))
 					yield return new ProductValidationResult(product,
