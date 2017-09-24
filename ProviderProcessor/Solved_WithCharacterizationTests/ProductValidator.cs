@@ -51,8 +51,8 @@ namespace ProviderProcessing.Solved_WithCharacterizationTests
 		public void SetUp()
 		{
 			productsReference = A.Fake<IProductsReference>();
-			A.CallTo((Expression<Action>) (() => productsReference.FindCodeByName("unknown"))).Returns(null);
-			A.CallTo((Expression<Action>) (() => productsReference.FindCodeByName("known"))).Returns(42);
+			A.CallTo(() => productsReference.FindCodeByName("unknown")).Returns(null);
+			A.CallTo(() => productsReference.FindCodeByName("known")).Returns(42);
 
 			unitsReference = A.Fake<IUnitsReference>();
 			A.CallTo(() => unitsReference.FindByCode("unknown")).Returns(null);

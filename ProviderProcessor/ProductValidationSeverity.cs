@@ -1,9 +1,9 @@
 namespace ProviderProcessing
 {
-    public enum ProductValidationSeverity
-    {
-        Ok,
-        Warning,
-        Error
-    }
+	public enum ProductValidationSeverity
+	{
+		Ok,
+		Warning,
+		Error
+	}
 }
