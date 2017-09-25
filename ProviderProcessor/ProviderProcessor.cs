@@ -28,12 +28,12 @@ namespace ProviderProcessing
 				return new ProcessReport(false, "Outdated data");
 			}
 			var errors = ValidateNames(data.Products)
-				.Concat(ValidatePricesAndMeasureUnitCodes(data.Products))
-				.ToList();
+				.Concat(data.Products.SelectMany(ValidatePricesAndMeasureUnitCodes))
+				.ToArray();
 			if (errors.Any())
 			{
 				return new ProcessReport(false, "Product validation errors",
-					errors.ToArray());
+					errors);
 			}
 
 			if (existingData == null)
@@ -61,13 +61,6 @@ namespace ProviderProcessing
 			return new ProcessReport(true, "OK");
 		}
 
-		private string FormatData(ProviderData data)
-		{
-			return data != null
-				? data.Id + " for " + data.ProviderId + " products count " + data.Products.Length
-				: "null";
-		}
-
 		private IEnumerable<ProductValidationResult> ValidateNames(ProductData[] data)
 		{
 			var reference = ProductsReference.GetInstance();
@@ -79,22 +72,26 @@ namespace ProviderProcessing
 			}
 		}
 
-		private IEnumerable<ProductValidationResult> ValidatePricesAndMeasureUnitCodes(ProductData[] data)
+		private IEnumerable<ProductValidationResult> ValidatePricesAndMeasureUnitCodes(ProductData product)
 		{
-			foreach (var product in data)
-			{
-				if (product.Price <= 0)
-					yield return new ProductValidationResult(product, "Bad price", ProductValidationSeverity.Warning);
-				if (!IsValidMeasureUnitCode(product.MeasureUnitCode))
-					yield return new ProductValidationResult(product,
-						"Bad units of measure", ProductValidationSeverity.Warning);
-			}
+			if (product.Price <= 0)
+				yield return new ProductValidationResult(product, "Bad price", ProductValidationSeverity.Warning);
+			if (!IsValidMeasureUnitCode(product.MeasureUnitCode))
+				yield return new ProductValidationResult(product,
+					"Bad units of measure", ProductValidationSeverity.Warning);
 		}
 
 		private bool IsValidMeasureUnitCode(string measureUnitCode)
 		{
 			var reference = MeasureUnitsReference.GetInstance();
 			return reference.FindByCode(measureUnitCode) != null;
+		}
+
+		private string FormatData(ProviderData data)
+		{
+			return data != null
+				? data.Id + " for " + data.ProviderId + " products count " + data.Products.Length
+				: "null";
 		}
 
 		private static readonly ILog log = LogManager.GetLogger(typeof(ProviderProcessor));
