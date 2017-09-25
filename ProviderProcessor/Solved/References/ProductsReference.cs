@@ -1,6 +1,6 @@
 using System;
 
-namespace ProviderProcessing.References
+namespace ProviderProcessing.Solved.References
 {
 	public class ProductsReference
 	{
@@ -11,12 +11,17 @@ namespace ProviderProcessing.References
 			return instance ?? (instance = LoadReference());
 		}
 
+		public static void SetInstance(ProductsReference value)
+		{
+			instance = value;
+		}
+
 		public static ProductsReference LoadReference()
 		{
 			throw new NotImplementedException("Долгая-долгая инициализация справочника.");
 		}
 
-		public int? FindCodeByName(string name)
+		public virtual int? FindCodeByName(string name)
 		{
 			throw new NotImplementedException("Работа со справочником");
 		}

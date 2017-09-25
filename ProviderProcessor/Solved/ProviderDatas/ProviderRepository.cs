@@ -1,25 +1,25 @@
 using System;
 
-namespace ProviderProcessing.ProviderDatas
+namespace ProviderProcessing.Solved.ProviderDatas
 {
 	public class ProviderRepository
 	{
-		public ProviderData FindByProviderId(Guid providerId)
+		public virtual ProviderData FindByProviderId(Guid providerId)
 		{
 			throw new NotImplementedException("Работа с базой данных");
 		}
 
-		public void RemoveById(Guid id)
+		public virtual void RemoveById(Guid id)
 		{
 			throw new NotImplementedException("Работа с базой данных");
 		}
 
-		public void Save(ProviderData data)
+		public virtual void Save(ProviderData data)
 		{
 			throw new NotImplementedException("Работа с базой данных");
 		}
 
-		public void Update(ProviderData existingData)
+		public virtual void Update(ProviderData existingData)
 		{
 			throw new NotImplementedException("Работа с базой данных");
 		}

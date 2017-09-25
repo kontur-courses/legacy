@@ -1,6 +1,6 @@
 using System;
 
-namespace ProviderProcessing.References
+namespace ProviderProcessing.Solved.References
 {
 	public class MeasureUnitsReference
 	{
@@ -11,12 +11,17 @@ namespace ProviderProcessing.References
 			return instance ?? (instance = LoadReference());
 		}
 
+		public static void SetInstance(MeasureUnitsReference value)
+		{
+			instance = value;
+		}
+
 		public static MeasureUnitsReference LoadReference()
 		{
 			throw new NotImplementedException("Долгая-долгая инициализация справочника.");
 		}
 
-		public MeasureUnit FindByCode(string measureUnitCode)
+		public virtual MeasureUnit FindByCode(string measureUnitCode)
 		{
 			throw new NotImplementedException("Работа со справочником");
 		}
