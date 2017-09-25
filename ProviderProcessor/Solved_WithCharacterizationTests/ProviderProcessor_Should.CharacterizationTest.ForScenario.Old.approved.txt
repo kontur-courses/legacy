@@ -1,3 +1,0 @@
-﻿Success: False, Error: Outdated data, Most Critical Message:
-
-Outdated provider data. ProviderId 00000002-0002-0002-0202-020202020202 Received timestamp: 01/01/2017 23:59:59 database timestamp 01/02/2017 00:00:00

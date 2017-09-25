@@ -2,6 +2,6 @@ namespace ProviderProcessing.References
 {
 	public class MeasureUnit
 	{
-		// много всякого
+		// РјРЅРѕРіРѕ РІСЃСЏРєРѕРіРѕ
 	}
 }

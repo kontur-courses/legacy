@@ -10,6 +10,7 @@ namespace ProviderProcessing
 {
 	public class ProviderProcessor
 	{
+		private static readonly ILog log = LogManager.GetLogger(typeof(ProviderProcessor));
 		private readonly ProviderRepository repo;
 
 		public ProviderProcessor()
@@ -93,7 +94,5 @@ namespace ProviderProcessing
 				? data.Id + " for " + data.ProviderId + " products count " + data.Products.Length
 				: "null";
 		}
-
-		private static readonly ILog log = LogManager.GetLogger(typeof(ProviderProcessor));
 	}
 }

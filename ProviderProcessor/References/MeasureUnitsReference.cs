@@ -11,16 +11,21 @@ namespace ProviderProcessing.References
 			return instance ?? (instance = LoadReference());
 		}
 
+		public static void SetInstance(MeasureUnitsReference value)
+		{
+			instance = value;
+		}
+
 		public static MeasureUnitsReference LoadReference()
 		{
-			throw new NotImplementedException("Долгая-долгая инициализация справочника.");
+			throw new NotImplementedException("Р”РѕР»РіР°СЏ-РґРѕР»РіР°СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРїСЂР°РІРѕС‡РЅРёРєР°.");
 		}
 
-		public MeasureUnit FindByCode(string measureUnitCode)
+		public virtual MeasureUnit FindByCode(string measureUnitCode)
 		{
-			throw new NotImplementedException("Работа со справочником");
+			throw new NotImplementedException("Р Р°Р±РѕС‚Р° СЃРѕ СЃРїСЂР°РІРѕС‡РЅРёРєРѕРј");
 		}
 
-		// Прочие методы
+		// РџСЂРѕС‡РёРµ РјРµС‚РѕРґС‹
 	}
 }
