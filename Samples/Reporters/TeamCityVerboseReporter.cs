@@ -1,5 +1,5 @@
 ﻿using ApprovalTests.Reporters;
-using Samples;
+using Samples.Reporters;
 
 /*
 У ApprovalTests есть такое понятие как FrontLoaderReporter — это репортер, который проверяет, 
@@ -16,7 +16,7 @@ using Samples;
 
 [assembly: FrontLoadedReporter(typeof(TeamCityVerboseReporter))]
 
-namespace Samples
+namespace Samples.Reporters
 {
 	public class TeamCityVerboseReporter : TeamCityReporter
 	{

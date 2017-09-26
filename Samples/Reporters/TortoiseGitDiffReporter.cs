@@ -1,7 +1,7 @@
 ﻿using ApprovalTests.Reporters;
 using ApprovalUtilities.Utilities;
 
-namespace Samples
+namespace Samples.Reporters
 {
 /*
 К сожалению в ApprovalTests нет готового репортера для TortoiseGitMerge.
