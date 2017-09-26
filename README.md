@@ -14,7 +14,7 @@
 
 ## Необходимые знания
 
-Рекомендуется пройти блоки [Тестирование](https://github.com/kontur-csharper/testing)
+Рекомендуется пройти блоки [Тестирование](https://github.com/kontur-csharper/testing), [Mocks](https://github.com/kontur-csharper/mocks) и [LINQ](https://github.com/kontur-csharper/linq)
 
 
 ## Самостоятельная подготовка
