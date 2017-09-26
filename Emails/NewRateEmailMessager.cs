@@ -56,7 +56,7 @@
 			sb.AppendLine();
 
 			sb.AppendLine("Kind regards - your bank.");
-		    return message;
+			return message;
 		}
 	}
 }
