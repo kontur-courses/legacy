@@ -77,7 +77,6 @@
     <Compile Include="Reporters\AutoApproveReporter.cs" />
     <Compile Include="PairwiseDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reporters\TeamCityVerboseReporter.cs" />
     <Compile Include="Reporters\TortoiseGitDiffReporter.cs" />
   </ItemGroup>
   <ItemGroup>
