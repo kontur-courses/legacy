@@ -3,13 +3,14 @@ using FakeItEasy;
 using FluentAssertions;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using ProviderProcessing.DoNotOpen.Infrastructure;
 using ProviderProcessing.ProcessReports;
 using ProviderProcessing.ProviderDatas;
 
 namespace ProviderProcessing.DoNotOpen
 {
 	[TestFixture]
-	public class ProviderProcessor_ManualSpecification
+	public class ProviderProcessor_ManualSpecification : ReportingTest<ProviderProcessor_ManualSpecification>
 	{
 		[Test]
 		public void FailsWithMessageAboutError_WhenWarningsAndErrors()
