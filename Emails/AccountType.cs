@@ -1,9 +1,9 @@
 ﻿namespace Emails
 {
-	public enum AccountType
-	{
-		Cheque,
-		Savings,
-		Credit
-	}
+    public enum AccountType
+    {
+        Cheque,
+        Savings,
+        Credit
+    }
 }

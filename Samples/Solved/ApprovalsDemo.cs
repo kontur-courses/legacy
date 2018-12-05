@@ -10,76 +10,76 @@ using StatePrinting;
 
 namespace Samples.Solved
 {
-	[TestFixture]
-	public class ApprovalsDemo
-	{
-		[Test]
+    [TestFixture]
+    public class ApprovalsDemo
+    {
+        [Test]
         [UseReporter(typeof(DiffReporter))]
         public void Puzzle15_InitialState()
-		{
-			var puzzle15 = new Puzzle15();
+        {
+            var puzzle15 = new Puzzle15();
             Approvals.Verify(puzzle15);
         }
 
-		[Test]
-		[UseReporter(typeof(DiffReporter))]
-		public void Puzzle15_MoveRight()
-		{
-			var puzzle15 = new Puzzle15();
+        [Test]
+        [UseReporter(typeof(DiffReporter))]
+        public void Puzzle15_MoveRight()
+        {
+            var puzzle15 = new Puzzle15();
             var state = puzzle15 + "\r\n";
             puzzle15.MoveRight();
-		    state += "MOVE RIGHT\r\n";
+            state += "MOVE RIGHT\r\n";
             state += puzzle15;
             Approvals.Verify(state);
         }
 
-		[Test]
-		[UseReporter(typeof(DiffReporter))]
-		public void ApproveProductDataWithStateprinter()
-		{
-			var product = new Product
-			{
-				Id = Guid.Empty,
-				Name = "Name",
-				Price = 3.14m,
-				UnitsCode = "112"
-			};
+        [Test]
+        [UseReporter(typeof(DiffReporter))]
+        public void ApproveProductDataWithStateprinter()
+        {
+            var product = new Product
+            {
+                Id = Guid.Empty,
+                Name = "Name",
+                Price = 3.14m,
+                UnitsCode = "112"
+            };
 
             var stateprinter = new Stateprinter();
             stateprinter.Configuration.Project
                 .Exclude<Product>(p => p.TemporaryData);
             var s = stateprinter.PrintObject(product);
             Approvals.Verify(s);
-		}
+        }
 
-		[Test]
-		[UseReporter(typeof(DiffReporter))]
-		public void ProductData_IsJsonSerializable()
-		{
-			Product original = new Product
-			{
-				Id = Guid.Empty,
-				Name = "Name",
-				Price = 3.14m,
-				UnitsCode = "112",
-				TemporaryData = "qwe"
-			};
-			string serialized = JsonConvert.SerializeObject(original);
-			Product deserialized = JsonConvert.DeserializeObject<Product>(serialized);
+        [Test]
+        [UseReporter(typeof(DiffReporter))]
+        public void ProductData_IsJsonSerializable()
+        {
+            Product original = new Product
+            {
+                Id = Guid.Empty,
+                Name = "Name",
+                Price = 3.14m,
+                UnitsCode = "112",
+                TemporaryData = "qwe"
+            };
+            string serialized = JsonConvert.SerializeObject(original);
+            Product deserialized = JsonConvert.DeserializeObject<Product>(serialized);
             deserialized.ShouldBeEquivalentTo(original,
                 opt => opt.Excluding(p => p.TemporaryData));
         }
-	}
+    }
 
-	public class Product
-	{
-		public Guid Id { get; set; }
-		[JsonIgnore]
-		public string TemporaryData { get; set; }
-		public string Name { get; set; }
-		public decimal Price { get; set; }
-		public string UnitsCode { get; set; }
-	}
+    public class Product
+    {
+        public Guid Id { get; set; }
+        [JsonIgnore]
+        public string TemporaryData { get; set; }
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string UnitsCode { get; set; }
+    }
 
     public class Puzzle15
     {

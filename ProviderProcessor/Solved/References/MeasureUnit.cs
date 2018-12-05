@@ -1,7 +1,7 @@
 namespace ProviderProcessing.Solved.References
 {
-	public class MeasureUnit
-	{
-		// много всякого
-	}
+    public class MeasureUnit
+    {
+        // много всякого
+    }
 }
