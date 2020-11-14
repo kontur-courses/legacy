@@ -3,7 +3,7 @@ namespace ProviderProcessing.DoNotOpen.Infrastructure
     public static class YourName
     {
         /// <summary>
-        /// Ваши фамилии через пробел. Например, "Egorov Shagalina"
+        /// Р’Р°С€Рё С„Р°РјРёР»РёРё С‡РµСЂРµР· РїСЂРѕР±РµР». РќР°РїСЂРёРјРµСЂ, "Egorov Shagalina"
         /// </summary>
         public const string Authors = "";
     }
