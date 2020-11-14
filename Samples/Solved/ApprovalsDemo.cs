@@ -66,7 +66,7 @@ namespace Samples.Solved
             };
             string serialized = JsonConvert.SerializeObject(original);
             Product deserialized = JsonConvert.DeserializeObject<Product>(serialized);
-            deserialized.ShouldBeEquivalentTo(original,
+            deserialized.Should().BeEquivalentTo(original,
                 opt => opt.Excluding(p => p.TemporaryData));
         }
     }
