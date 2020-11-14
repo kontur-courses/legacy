@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
-using ApprovalTests;
-using ApprovalTests.Reporters;
-using FluentAssertions;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using StatePrinting;
 
 namespace Samples
 {
@@ -65,7 +61,7 @@ namespace Samples
             string serialized = JsonConvert.SerializeObject(original);
             Product deserialized = JsonConvert.DeserializeObject<Product>(serialized);
             //TODO: Проверить, что сериализуется корректно!
-            //HINT: ShouldBeEquivaletTo с опциями в FluentAssertions
+            //HINT: Should().BeEquivalentTo с опциями в FluentAssertions
         }
     }
 
